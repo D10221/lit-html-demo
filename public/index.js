@@ -1,6 +1,7 @@
 import { render, html } from "../node_modules/lit-html/lit-html.js";
 import store, { bindActionCreators } from "./store.js";
 import { actions } from "./reducer.js";
+import Button from "./components/button.js"
 
 const connect = (selector, actions) => (Func) => {
     selector = selector || (() => { });
@@ -11,10 +12,6 @@ const connect = (selector, actions) => (Func) => {
         ..._actions
     });
 }
-
-const Button = ({ text, onClick }) => (
-    html`<button @click=${onClick}>${text}</button>`
-)
 
 const Title = ({ message }) => (
     html`<h1>${message}
