@@ -1,0 +1,21 @@
+{
+  "name": "@local/lit-html-demo",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@australis/redux-es": "^4.0.0",
+    "lit-html": "^0.11.4"
+  },
+  "scripts": {
+    "test": "jest --config=./jest.json --ci --env=node",
+    "build": "npm run clean && tsc -p ./tsconfig.prod.json && webpack --progress --mode=production",
+    "dev": "webpack-dev-server",
+    "server": "nodemon index.js",
+    "client": "webpack --watch --progress",
+    "lint": "tslint src/",
+    "precommit": "tslint src --quiet",
+    "clean": "rimraf dist"
+  }
+}
