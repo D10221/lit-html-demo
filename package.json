@@ -9,13 +9,9 @@
     "lit-html": "^0.11.4"
   },
   "scripts": {
-    "test": "jest --config=./jest.json --ci --env=node",
-    "build": "npm run clean && tsc -p ./tsconfig.prod.json && webpack --progress --mode=production",
-    "dev": "webpack-dev-server",
-    "server": "nodemon index.js",
-    "client": "webpack --watch --progress",
-    "lint": "tslint src/",
-    "precommit": "tslint src --quiet",
-    "clean": "rimraf dist"
-  }
+    "start": "node ./server"
+  },
+  "devDependencies": {
+    "express": "^4.16.3"
+  }    
 }

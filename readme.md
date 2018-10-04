@@ -8,4 +8,4 @@ Try:
 
 Usage:
 
-    http-server .
+    yarn start

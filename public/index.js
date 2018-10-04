@@ -1,4 +1,4 @@
-import { render, html } from "./node_modules/lit-html/lit-html.js";
+import { render, html } from "../node_modules/lit-html/lit-html.js";
 import store, { bindActionCreators } from "./store.js";
 import { actions } from "./reducer.js";
 
