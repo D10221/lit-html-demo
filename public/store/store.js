@@ -1,8 +1,7 @@
-import redux from "./node_modules/@australis/redux-es/dist/index.js";
+import redux from "https://unpkg.com/@australis/redux-es@4.0.0/dist/index.js";
 import reducer from "./reducer.js";
 import middleware from "./middleware.js";
-
-const  { compose: kompose, createStore, applyMiddleware, bindActionCreators }  = redux;
+const { compose: kompose, createStore, bindActionCreators, applyMiddleware } = redux;
 const { __REDUX_DEVTOOLS_EXTENSION_COMPOSE__ } = window;
 
 const compose =

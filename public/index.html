@@ -5,24 +5,26 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Lit-Html Demo" />
-    <meta name="theme-color" content="#000000">    
+    <meta name="theme-color" content="#000000">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="/manifest.json">
-    <link rel="shortcut icon" href="/icon.png">   
-    <title>Lit-Html Demo</title>    
+    <link rel="manifest" href="./manifest.json">
+    <link rel="shortcut icon" href="./icon.png">
+    <title>Lit-Html Demo</title>
     <script>
         window.process = {
             env: {
                 NODE_ENV: localStorage.getItem("NODE_ENV")
             }
         }
-        </script>
+        window.global = {
+
+        }
+    </script>
     <script type="module" src="./index.js"></script>
-    <link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
-    <div>...Loading</div>
+    ...Loading
 </body>
 
 </html>

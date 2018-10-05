@@ -1,7 +1,7 @@
-import { html } from "../node_modules/lit-html/lit-html.js";
+import html from "../html.js";
 /** */
-const Button = ({ text, onClick }) => (
-    html`<button @click=${onClick}>${text}</button>`
+const Button = ({ text, onClick , classes }) => (
+    html`<button class=${classes} @click=${onClick}>${text}</button>`
 )
 
 export default Button;

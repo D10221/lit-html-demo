@@ -1,42 +1,27 @@
-import { render, html } from "../node_modules/lit-html/lit-html.js";
-import store, { bindActionCreators } from "./store.js";
-import { actions } from "./reducer.js";
-import Button from "./components/button.js"
+import html, { render } from "./html.js";
+import store, { actions, connect } from "./store/index.js";
+import Button from "./components/button.js";
+import H1 from "./components/h1.js";
+import jss from "./jss.js";
+import styles from "./styles.js";
+import classes from "./classes.js";
 
-const connect = (selector, actions) => (Func) => {
-    selector = selector || (() => { });
-    const _actions = bindActionCreators(actions, store.dispatch);
-    return props => Func({
-        ...props,
-        ...(selector(store.getState())),
-        ..._actions
-    });
-}
+const App = ({ message, setState }) => {
+    const { classes: css } = jss(styles).attach();
+    const onClick = () => setState({ message: message + "!" });
+    return html`
+        <div class=${classes(css.flexRow, css.margin1)}>
+            ${H1({ content: message, className: css.h1 })}
+            <div class=${classes(css.flexGrow)}></div>
+            ${Button({ onClick, text: "Click", classes: css.button })}
+        </div>
+        <div class=${classes(css.flexRow, css.flexGrow)}>C</div>
+        <div class=${classes(css.flexGrow)}></div>
+        <div class="panel panel-bottom">F</div>`;
+};
 
-const Title = ({ message }) => (
-    html`<h1>${message}
-    <h1>`
-);
-
-const App = connect(state => state, actions)(
-    ({ message, setState }) => {
-        const onClick = () => setState({ message: message + "!" });        
-        return html`
-    
-    <div id="top-panel" class="panel panel-top">
-        ${Title({ message })}${Button({ onClick, text: "Click" })}
-    </div>
-    
-    <div id="left-panel" class="panel panel-left">L</div>
-    
-    <div id="center-panel" class="panel panel-center">C</div>
-    
-    <div id="bottom-panel" class="panel panel-bottom">F</div>`;
-    }
-)
-
-store.onChange(() => {
-    render(App({}), document.body);
+store.subscribe(() => {
+    render(connect(state => state, actions)(App)(), document.body);
 })
 
 store.dispatch({
