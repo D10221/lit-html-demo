@@ -42,6 +42,9 @@ const styles = (theme) => {
             backgroundColor: theme.backgroundColors["blue-lightest"],
             fontSize: theme.textSizes["base"],
             height: theme.textSizes["4xl"]
+        },
+        alignCenter :{
+            alignItems: "center"
         }
 
     }

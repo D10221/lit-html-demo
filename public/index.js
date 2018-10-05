@@ -10,7 +10,7 @@ const App = ({ message, setState }) => {
     const { classes: css } = jss(styles).attach();
     const onClick = () => setState({ message: message + "!" });
     return html`
-        <div class=${classes(css.flexRow, css.margin1)}>
+        <div class=${classes(css.flexRow, css.margin1, css.alignCenter)}>
             ${H1({ content: message, className: css.h1 })}
             <div class=${classes(css.flexGrow)}></div>
             ${Button({ onClick, text: "Click", classes: css.button })}
